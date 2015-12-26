@@ -7,5 +7,21 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "babel-core": "^6.3.26",
+    "babel-preset-react": "^6.3.13",
+    "babel-preset-stage-3": "^6.3.13",
+    "babelify": "^7.2.0",
+    "browserify": "^12.0.1",
+    "chokidar": "^1.4.1",
+    "fs-extra": "^0.26.3",
+    "react": "^0.14.3",
+    "react-dom": "^0.14.3",
+    "surge": "^0.17.4",
+    "yargs": "^3.31.0"
+  },
+  "bin": {
+    "resurge": "index.js"
+  }
 }
