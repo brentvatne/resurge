@@ -1,0 +1,11 @@
+{
+  "name": "resurge",
+  "version": "1.0.0",
+  "description": "Instant React app setup and deploy with surge.sh",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT"
+}
