@@ -34,13 +34,13 @@ module.exports = function() {
 
 
   const projectBuildPath = `${projectPath}/.build`;
+  const templateBuildPath = `${rootPath}/.build`;
   fs.removeSync(projectBuildPath);
   fs.mkdirpSync(projectBuildPath);
 
-  const indexTemplateSource = `${rootPath}/.build/index.html`;
-  const indexTemplateDestination = `${projectPath}/.build/index.html`;
   try {
-    fs.copySync(indexTemplateSource, indexTemplateDestination);
+    fs.copySync(`${templateBuildPath}/index.html`, `${projectBuildPath}/index.html`);
+    fs.copySync(`${templateBuildPath}/__app.js`, `${projectBuildPath}/__app.js`);
   } catch(err) {
     console.log(err.message);
   }
