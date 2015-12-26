@@ -3,6 +3,10 @@
 
 const argv = require('yargs').argv;
 const surge = require('./surge');
+const processFile = require('./processFile');
+const fs = require('fs-extra');
+const main = 'index.js';
+const buildPath = `${process.cwd()}/.build`;
 
 if (argv.list) {
   surge.list();
@@ -11,11 +15,6 @@ if (argv.list) {
   // sourceRoots right now :(
   require('./setupFs')();
 
-  const main = 'index.js';
-  const processFile = require('./processFile');
-  const fs = require('fs-extra');
-  const buildPath = `${process.cwd()}/.build`;
-
   try {
     fs.statSync(main);
   } catch (err) {
@@ -23,6 +22,17 @@ if (argv.list) {
     process.exit(1);
   }
 
+  compileAndPublish();
+
+  if (argv.watch) {
+    const watcher = require('./watcher')();
+    watcher.on('change', (path, stats) => {
+      compileAndPublish();
+    });
+  }
+}
+
+function compileAndPublish() {
   processFile('./.build/__app.js', `${buildPath}/${main}`).then((result) => {
     let pathParts = process.cwd().split('/');
     let domain = 'resurge-' + pathParts[pathParts.length - 1] + '.surge.sh';
