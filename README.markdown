@@ -29,6 +29,7 @@ Rename the directory and try again? :p
 ### Sample starter app
 
 ```javascript
+'use strict';
 var React = require('react');
 
 class App extends React.Component {
