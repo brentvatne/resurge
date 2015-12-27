@@ -10,9 +10,7 @@ Make and share a small React project with minimal effort. In response to
 [@vjeux's fun challenge](https://twitter.com/Vjeux/status/680769537550102530).
 
 1. `npm i resurge -g`
-2. Go to [surge.sh](https://surge.sh/) and register an account (this is
-   the place where we will put our apps)
-3. `mkdir your-project-name-here && cd your-project-name-here`
+3. `mkdir your-project && cd your-project`
 4. `touch index.js`, [add a React component](#sample-starter-app) and export it
 5. Run `resurge`
 
@@ -20,11 +18,17 @@ Make and share a small React project with minimal effort. In response to
 
 Rename the directory and try again? :p
 
-### Other commands
+### Commands
 
-- `resurge --list` will show you apps you have deployed to surge.sh
+- `resurge` will build and publish your app
 - `resurge --watch` will watch your directory for changes and publish
   them to surge automatically
+- `resurge --list` will show you apps you have deployed to surge.sh
+
+### Can I use xyz?
+
+- Install any npm package you want. Your project will have react/react-dom by default.
+- This uses Babel/Browserfiy, with [stage-3](https://babeljs.io/docs/plugins/preset-stage-3/) and [react](http://babeljs.io/docs/plugins/preset-react/) plugins.
 
 ### Sample starter app
 
