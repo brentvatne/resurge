@@ -22,24 +22,35 @@ if (argv.list) {
     process.exit(1);
   }
 
+  console.log('Running initial build...');
   compileAndPublish();
 
   if (argv.watch) {
     const watcher = require('./watcher')();
     watcher.on('change', (path, stats) => {
+      console.log(`${path} changed, compiling..`);
+      compileAndPublish();
+    });
+
+    watcher.on('unlink', (path, stats) => {
+      console.log(`${path} removed, compiling..`);
       compileAndPublish();
     });
   }
 }
 
 function compileAndPublish() {
-  processFile('./.build/__app.js', `${buildPath}/${main}`).then((result) => {
-    let pathParts = process.cwd().split('/');
-    let domain = 'resurge-' + pathParts[pathParts.length - 1] + '.surge.sh';
+  try {
+    processFile('./.build/__app.js', `${buildPath}/${main}`).then((result) => {
+      let pathParts = process.cwd().split('/');
+      let domain = 'resurge-' + pathParts[pathParts.length - 1] + '.surge.sh';
 
-    surge.publish({
-      project: buildPath,
-      domain: domain,
+      surge.publish({
+        project: buildPath,
+        domain: domain,
+      });
     });
-  });
+  } catch(err) {
+    console.log(err);
+  }
 }

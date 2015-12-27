@@ -14,6 +14,7 @@ function processFile(file, dest) {
     browserify(file)
       .transform('babelify', config)
       .bundle()
+      .on('error', (error) => { console.log(error.message) })
       .on('data', (data) => { result.write(data) })
       .on('end', () => { resolve('hiiiiii'); });
   });
