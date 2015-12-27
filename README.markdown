@@ -10,9 +10,9 @@ Make and share a small React project with minimal effort. In response to
 [@vjeux's fun challenge](https://twitter.com/Vjeux/status/680769537550102530).
 
 1. `npm i resurge -g`
-3. `mkdir your-project && cd your-project`
-4. `touch index.js`, [add a React component](#sample-starter-app) and export it
-5. Run `resurge`
+2. `mkdir your-project && cd your-project`
+3. `touch index.js`, [add a React component](#sample-starter-app) and export it
+4. Run `resurge`
 
 ### My project name is taken
 
@@ -46,3 +46,12 @@ class App extends React.Component {
 
 module.exports = App;
 ```
+
+### Contribute
+
+- Feel free to contribute in any way you want as long as it doesn't make
+  this project any more difficult to get into. Creating a new project
+and publishing it should never take more than the 4 simple steps
+described above.
+- You could make the CLI better, like this:
+  https://github.com/sintaxi/harp/blob/ko-with-surge/bin/harp
