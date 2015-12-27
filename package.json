@@ -1,6 +1,6 @@
 {
   "name": "resurge",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Instant React app setup and deploy with surge.sh",
   "main": "index.js",
   "scripts": {
